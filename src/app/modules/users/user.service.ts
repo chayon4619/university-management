@@ -1,7 +1,8 @@
+import ApiError from '../../../Errors/ApiErrors'
 import config from '../../../config'
-import { IUser } from './users.interface'
-import { User } from './users.model'
-import { generateUserId } from './users.utils'
+import { IUser } from './user.interface'
+import { User } from './user.model'
+import { generateUserId } from './user.utils'
 
 // here should be only logic
 const createUser = async (user: IUser): Promise<IUser | null> => {
@@ -17,12 +18,12 @@ const createUser = async (user: IUser): Promise<IUser | null> => {
   const createdUser = User.create(user)
 
   if (!createdUser) {
-    throw new Error('Failed To Create User')
+    throw new ApiError(400, 'Failed To Create User')
   }
 
   return createdUser
 }
 
-export default {
+export const UserService = {
   createUser,
 }

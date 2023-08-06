@@ -1,6 +1,7 @@
-import express, { Application, Request, Response, urlencoded } from 'express'
+import express, { Application, urlencoded } from 'express'
 import cors from 'cors'
-import userRouter from './app/modules/users/users.router'
+import { UserRoutes } from './app/modules/users/user.router'
+import globalErrorHandler from './app/middleware/globalErrorHandler'
 const app: Application = express()
 
 app.use(cors())
@@ -11,27 +12,14 @@ app.use(urlencoded({ extended: true }))
 
 // Application Router
 
-app.use('/api/v1/users/', userRouter)
+app.use('/api/v1/users/', UserRoutes)
 
-// error class
-class ApiError extends Error {
-  statusCode: number
+// // testing
+// app.get('/',  async(req: Request, res: Response,next: NextFunction) => {
+//  throw new Error("Testing error")
+// })
 
-  constructor(statusCode: number, message: string | undefined, stack = '') {
-    super(message)
-    this.statusCode = statusCode
-    if (stack) {
-      this.stack = stack
-    } else {
-      Error.captureStackTrace(this, this.constructor)
-    }
-  }
-}
-
-// testing
-app.get('/', async (req: Request, res: Response) => {
-  res.send('Server is working successfully')
-  throw new ApiError(400, 'ore baba')
-})
+// global error handler
+app.use(globalErrorHandler)
 
 export default app

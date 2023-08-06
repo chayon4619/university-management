@@ -6,14 +6,29 @@
     "auditLog": "H:\\next-level\\university-management-auth-service\\logs\\winston\\successes\\.7c1d07acc9160707becf3be8cf0c43724ddd5509-audit.json",
     "files": [
         {
-            "date": 1687628885962,
-            "name": "H:\\next-level\\university-management-auth-service\\logs\\winston\\successes\\UNM-2023-06-24-23-success.log",
-            "hash": "4fa4069517ae5ae7713693878feabcda40a7e39166478996ee7727bf08170c9c"
+            "date": 1691330981490,
+            "name": "H:\\next-level\\university-management-auth-service\\logs\\winston\\successes\\UNM-2023-08-06-20-success.log",
+            "hash": "4ccdebdbceea4e99c29d791ed9d00404abd88093d59b8e57711c1bafc56f4690"
         },
         {
-            "date": 1687632046551,
-            "name": "H:\\next-level\\university-management-auth-service\\logs\\winston\\successes\\UNM-2023-06-25-00-success.log",
-            "hash": "fc5fd55aaeba45e02d3d3729e7a0f3f739022f125ee8079eed529d0ee0fc6ce3"
+            "date": 1691334464866,
+            "name": "H:\\next-level\\university-management-auth-service\\logs\\winston\\successes\\UNM-2023-08-06-21-success.log",
+            "hash": "b802d16cc148fb045b9b86f4bf68a928e20425b493eb04ac3c36579907c98fe4"
+        },
+        {
+            "date": 1691338055092,
+            "name": "H:\\next-level\\university-management-auth-service\\logs\\winston\\successes\\UNM-2023-08-06-22-success.log",
+            "hash": "73f06a75da0e5269bbf1b91633974f26332edd752d4eb621dfee379621dc3ed4"
+        },
+        {
+            "date": 1691342553356,
+            "name": "H:\\next-level\\university-management-auth-service\\logs\\winston\\successes\\UNM-2023-08-06-23-success.log",
+            "hash": "b1c7e4609f84c819cf6534086887b480ab56ae6ee0c486032bb7e413896edd2f"
+        },
+        {
+            "date": 1691344842696,
+            "name": "H:\\next-level\\university-management-auth-service\\logs\\winston\\successes\\UNM-2023-08-07-00-success.log",
+            "hash": "739bd6445be74e788a8e728d0c982d9e90eeeaf8c6a870407b7b515a1a87e827"
         }
     ],
     "hashType": "sha256"
