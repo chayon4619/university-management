@@ -3,6 +3,8 @@ import { IGenericErrorMessage } from '../../interfaces/error'
 import handelValidationError from '../../Errors/handelValidationError'
 import config from '../../config'
 import ApiError from '../../Errors/ApiErrors'
+import { ZodError } from 'zod'
+import handelZodError from '../../Errors/handelZodError'
 
 const globalErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
   let statusCode = 500
@@ -11,6 +13,11 @@ const globalErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
 
   if (err?.name === 'ValidationError') {
     const simplifyError = handelValidationError(err)
+    statusCode = simplifyError.statusCode
+    message = simplifyError.message
+    errorMessages = simplifyError.errorMessages
+  } else if (err instanceof ZodError) {
+    const simplifyError = handelZodError(err)
     statusCode = simplifyError.statusCode
     message = simplifyError.message
     errorMessages = simplifyError.errorMessages
