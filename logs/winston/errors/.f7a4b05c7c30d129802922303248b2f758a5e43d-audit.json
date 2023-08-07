@@ -29,6 +29,31 @@
             "date": 1691344842712,
             "name": "H:\\next-level\\university-management-auth-service\\logs\\winston\\errors\\UNM-2023-08-07-00-error.log",
             "hash": "91d1342b24111017014296ed782f282f15acfcb61708f4de10f065ee523b0c7a"
+        },
+        {
+            "date": 1691395074225,
+            "name": "H:\\next-level\\university-management-auth-service\\logs\\winston\\errors\\UNM-2023-08-07-13-error.log",
+            "hash": "dbe0b9086210c2f34856bdca0e117c9eb08f61208c7c3c6ef356dead137946a3"
+        },
+        {
+            "date": 1691395747577,
+            "name": "H:\\next-level\\university-management-auth-service\\logs\\winston\\errors\\UNM-2023-08-07-14-error.log",
+            "hash": "cbaf604f2daa63001ea6204979641af58a9e0e85f96f41d7362745c573a0a671"
+        },
+        {
+            "date": 1691399118442,
+            "name": "H:\\next-level\\university-management-auth-service\\logs\\winston\\errors\\UNM-2023-08-07-15-error.log",
+            "hash": "82682a05c476a7c17ca882f3848caeaac67509c2965e8d58bbac04a5afc8baed"
+        },
+        {
+            "date": 1691402826216,
+            "name": "H:\\next-level\\university-management-auth-service\\logs\\winston\\errors\\UNM-2023-08-07-16-error.log",
+            "hash": "883a074a275738657ec935c53675efe6061f2b28d063983266d726b9a64433e8"
+        },
+        {
+            "date": 1691406879960,
+            "name": "H:\\next-level\\university-management-auth-service\\logs\\winston\\errors\\UNM-2023-08-07-17-error.log",
+            "hash": "a7b3f792a183bd93010b115b43813c52dc9501c0777794b3d048fedf901afcc4"
         }
     ],
     "hashType": "sha256"
