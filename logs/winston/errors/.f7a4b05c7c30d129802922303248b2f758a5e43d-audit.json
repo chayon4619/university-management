@@ -64,6 +64,11 @@
             "date": 1691515471108,
             "name": "H:\\next-level\\university-management-auth-service\\logs\\winston\\errors\\UNM-2023-08-08-23-error.log",
             "hash": "697736d1e1eba45a5bca312ab6521bcdee956bc7c37f00249a2fcb4ef27813de"
+        },
+        {
+            "date": 1691518201630,
+            "name": "H:\\next-level\\university-management-auth-service\\logs\\winston\\errors\\UNM-2023-08-09-00-error.log",
+            "hash": "135982c633f589e6bbff67e50e31e12aeeb912291253d143eb4cf621b5baf978"
         }
     ],
     "hashType": "sha256"
