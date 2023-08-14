@@ -12,14 +12,13 @@ const createSemesterToDb = catchAsync(
       academicSemesterData
     )
 
-    next()
-
     sendResponse(res, {
       statusCode: httpStatus.OK,
       success: true,
       message: 'Academic Semester is created successfully',
       data: result,
     })
+    next()
   }
 )
 
