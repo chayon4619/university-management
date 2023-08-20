@@ -14,4 +14,6 @@ router.post(
   AcademicSemesterController.createSemesterToDb
 )
 
+router.get('/', AcademicSemesterController.getAllSemesters)
+
 export const AcademicSemesterRoutes = router
