@@ -1,7 +1,13 @@
 import httpStatus from 'http-status'
 import ApiError from '../../../Errors/ApiErrors'
-import { academicSemesterTitleCodeMapper } from './academicSemester.constant'
-import { IAcademicSemester } from './academicSemester.interface'
+import {
+  academicSemesterTitleCodeMapper,
+  searchableFields,
+} from './academicSemester.constant'
+import {
+  IAcademicSemester,
+  IAcademicSemesterFilters,
+} from './academicSemester.interface'
 import { AcademicSemester } from './academicSemester.model'
 import { IPaginationOptions } from '../../../interfaces/pagination'
 import { IGenericResponse } from '../../../interfaces/common'
@@ -20,22 +26,85 @@ const createSemester = async (
 }
 
 const getAllSemesters = async (
+  filters: IAcademicSemesterFilters,
   paginationOptions: IPaginationOptions
 ): Promise<IGenericResponse<IAcademicSemester[]>> => {
+  // searching
+  const { searchTerm, ...filtersData } = filters
+
+  const andConditions = []
+
+  // searching condition
+  if (searchTerm) {
+    andConditions.push({
+      $or: searchableFields.map(field => ({
+        [field]: {
+          $regex: searchTerm,
+          $options: 'i',
+        },
+      })),
+    })
+  }
+
+  // filters data conditions
+  if (Object.keys(filtersData).length) {
+    andConditions.push({
+      $and: Object.entries(filtersData).map(([field, value]) => ({
+        [field]: value,
+      })),
+    })
+  }
+
+  //another way
+
+  // const andConditions = [
+  //   {
+  //     $or: [
+  //       {
+  //         title: {
+  //           $regex: searchTerm,
+  //           $options: 'i'
+  //         },
+  //       },
+  //       {
+  //         code: {
+  //           $regex: searchTerm,
+  //           $options: 'i'
+  //         },
+  //       },
+  //       {
+  //         year: {
+  //           $regex: searchTerm,
+  //           $options: 'i'
+  //         },
+  //       },
+  //     ],
+  //   },
+  // ];
+
+  // pagination,sorting
+
+  // pagination calculation
   const { page, limit, skip, sortBy, sortOrder } =
     paginationHelpers.calculatePagination(paginationOptions)
 
   const sortConditions: { [key: string]: SortOrder } = {}
 
+  // implement sortBy and sortOrder
   if (sortBy && sortOrder) {
     sortConditions[sortBy] = sortOrder
   }
 
-  const result = await AcademicSemester.find()
+  // it's for get data without filtering,searching
+  const whereCondition = andConditions.length > 0 ? { $and: andConditions } : {}
+
+  // find the result
+  const result = await AcademicSemester.find(whereCondition)
     .sort(sortConditions)
     .skip(skip)
     .limit(limit)
 
+  // total document
   const total = await AcademicSemester.countDocuments()
 
   return {
