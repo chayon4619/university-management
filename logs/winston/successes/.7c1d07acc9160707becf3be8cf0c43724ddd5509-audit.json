@@ -74,6 +74,26 @@
             "date": 1692709404843,
             "name": "H:\\next-level\\university-management-auth-service\\logs\\winston\\successes\\UNM-2023-08-22-19-success.log",
             "hash": "c61912dd9433d48f7fc517c0c7255cbe761fd1042c197a2c22322bf6b49753bc"
+        },
+        {
+            "date": 1692718892497,
+            "name": "H:\\next-level\\university-management-auth-service\\logs\\winston\\successes\\UNM-2023-08-22-21-success.log",
+            "hash": "5d740e270c5ca5d4d78eef55bdfba9bc397c62b7d8ec53ec8c1e6a6bfc86cd64"
+        },
+        {
+            "date": 1692720284035,
+            "name": "H:\\next-level\\university-management-auth-service\\logs\\winston\\successes\\UNM-2023-08-22-22-success.log",
+            "hash": "fa365e996badb3a0f81f40f8b81f45322372af8acc10563a38b79f791d31a96c"
+        },
+        {
+            "date": 1692723843898,
+            "name": "H:\\next-level\\university-management-auth-service\\logs\\winston\\successes\\UNM-2023-08-22-23-success.log",
+            "hash": "078faeb3423180b09e51bbd5ab67fd164011d6447e9b349f879d1757b4b4cbe8"
+        },
+        {
+            "date": 1692727416812,
+            "name": "H:\\next-level\\university-management-auth-service\\logs\\winston\\successes\\UNM-2023-08-23-00-success.log",
+            "hash": "fb315559f36a69ecf84d7379011c800240c8779d3ca277b8a9542076d0b75c9a"
         }
     ],
     "hashType": "sha256"

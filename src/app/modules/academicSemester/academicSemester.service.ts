@@ -65,33 +65,6 @@ const getAllSemesters = async (
     });
   }
 
-  //another way
-
-  // const andConditions = [
-  //   {
-  //     $or: [
-  //       {
-  //         title: {
-  //           $regex: searchTerm,
-  //           $options: 'i'
-  //         },
-  //       },
-  //       {
-  //         code: {
-  //           $regex: searchTerm,
-  //           $options: 'i'
-  //         },
-  //       },
-  //       {
-  //         year: {
-  //           $regex: searchTerm,
-  //           $options: 'i'
-  //         },
-  //       },
-  //     ],
-  //   },
-  // ];
-
   // pagination,sorting
 
   // pagination calculation

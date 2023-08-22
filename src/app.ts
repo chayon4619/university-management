@@ -4,29 +4,24 @@ import express, {
   Request,
   Response,
   urlencoded,
-} from 'express'
-import cors from 'cors'
-import globalErrorHandler from './app/middleware/globalErrorHandler'
-import routes from './app/routes'
-import httpStatus from 'http-status'
-const app: Application = express()
+} from 'express';
+import cors from 'cors';
+import globalErrorHandler from './app/middleware/globalErrorHandler';
+import routes from './app/routes';
+import httpStatus from 'http-status';
+const app: Application = express();
 
-app.use(cors())
+app.use(cors());
 
 // parser
-app.use(express.json())
-app.use(urlencoded({ extended: true }))
+app.use(express.json());
+app.use(urlencoded({ extended: true }));
 
 // Application Router
-app.use('/api/v1', routes)
-
-// // testing
-// app.get('/',  async(req: Request, res: Response,next: NextFunction) => {
-//  throw new Error("Testing error")
-// })
+app.use('/api/v1', routes);
 
 // global error handler
-app.use(globalErrorHandler)
+app.use(globalErrorHandler);
 
 // Not Found handle
 app.use((req: Request, res: Response, next: NextFunction) => {
@@ -39,8 +34,8 @@ app.use((req: Request, res: Response, next: NextFunction) => {
         message: 'API Not Found',
       },
     ],
-  })
-  next()
-})
+  });
+  next();
+});
 
-export default app
+export default app;
