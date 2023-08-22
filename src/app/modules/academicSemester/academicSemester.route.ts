@@ -6,6 +6,7 @@ import { AcademicSemesterController } from './academicSemester.controller'
 
 const router = express.Router()
 
+// create semester route
 router.post(
   '/create-semester',
   validateRequest(
