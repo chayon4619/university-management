@@ -94,6 +94,21 @@
             "date": 1692727416812,
             "name": "H:\\next-level\\university-management-auth-service\\logs\\winston\\successes\\UNM-2023-08-23-00-success.log",
             "hash": "fb315559f36a69ecf84d7379011c800240c8779d3ca277b8a9542076d0b75c9a"
+        },
+        {
+            "date": 1692773323107,
+            "name": "H:\\next-level\\university-management-auth-service\\logs\\winston\\successes\\UNM-2023-08-23-12-success.log",
+            "hash": "2fdadbf6e65db0f72552dc4c3227cf634651e59ce16cb6cba57fdd1a93c8db28"
+        },
+        {
+            "date": 1692774004410,
+            "name": "H:\\next-level\\university-management-auth-service\\logs\\winston\\successes\\UNM-2023-08-23-13-success.log",
+            "hash": "f76ce6274039cccec9b7e05432df1ddf02ec03beff0c24bea80f7a7d6e22650c"
+        },
+        {
+            "date": 1692781613003,
+            "name": "H:\\next-level\\university-management-auth-service\\logs\\winston\\successes\\UNM-2023-08-23-15-success.log",
+            "hash": "1ac9fe1c614e6051a54ab9f039e19b20398cf11bc1c9fedc9a93d4867d81626b"
         }
     ],
     "hashType": "sha256"
