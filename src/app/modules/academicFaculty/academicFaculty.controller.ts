@@ -95,7 +95,7 @@ const getAllFaculty = catchAsync(async (req: Request, res: Response) => {
   sendResponse<IAcademicFaculty[]>(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'All Semester get successfully',
+    message: 'All Faculty get successfully',
     meta: result.meta,
     data: result.data,
   });

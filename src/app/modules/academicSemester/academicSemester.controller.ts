@@ -24,29 +24,6 @@ const createSemesterToDb = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-// get all semester
-const getAllSemesters = catchAsync(async (req: Request, res: Response) => {
-  // filter and search
-  const filters = pick(req.query, academicSemesterFilterableField);
-
-  // pagination
-  const paginationOptions = pick(req.query, paginationFields);
-
-  // get data from db
-  const result = await AcademicSemesterService.getAllSemesters(
-    filters,
-    paginationOptions
-  );
-
-  sendResponse<IAcademicSemester[]>(res, {
-    statusCode: httpStatus.OK,
-    success: true,
-    message: 'All Semester get successfully',
-    meta: result.meta,
-    data: result.data,
-  });
-});
-
 // get single semester
 const getSingleSemesters = catchAsync(async (req: Request, res: Response) => {
   // get the id
@@ -60,6 +37,23 @@ const getSingleSemesters = catchAsync(async (req: Request, res: Response) => {
     statusCode: httpStatus.OK,
     success: true,
     message: ' Semester get successfully',
+    data: result,
+  });
+});
+
+// delete semester
+const deleteSemester = catchAsync(async (req: Request, res: Response) => {
+  // get the id
+  const id = req.params.id;
+
+  // send id in service
+  const result = await AcademicSemesterService.deleteSemester(id);
+
+  // send response
+  sendResponse<IAcademicSemester>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: ' Semester deleted successfully',
     data: result,
   });
 });
@@ -84,20 +78,26 @@ const updateSemester = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-// delete semester
-const deleteSemester = catchAsync(async (req: Request, res: Response) => {
-  // get the id
-  const id = req.params.id;
+// get all semester
+const getAllSemesters = catchAsync(async (req: Request, res: Response) => {
+  // filter and search
+  const filters = pick(req.query, academicSemesterFilterableField);
 
-  // send id in service
-  const result = await AcademicSemesterService.deleteSemester(id);
+  // pagination
+  const paginationOptions = pick(req.query, paginationFields);
 
-  // send response
-  sendResponse<IAcademicSemester>(res, {
+  // get data from db
+  const result = await AcademicSemesterService.getAllSemesters(
+    filters,
+    paginationOptions
+  );
+
+  sendResponse<IAcademicSemester[]>(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: ' Semester deleted successfully',
-    data: result,
+    message: 'All Semester get successfully',
+    meta: result.meta,
+    data: result.data,
   });
 });
 
