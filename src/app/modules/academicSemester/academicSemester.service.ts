@@ -116,7 +116,7 @@ const getAllSemesters = async (
     .limit(limit);
 
   // total document
-  const total = await AcademicSemester.countDocuments();
+  const total = await AcademicSemester.countDocuments(whereCondition);
 
   return {
     meta: {
