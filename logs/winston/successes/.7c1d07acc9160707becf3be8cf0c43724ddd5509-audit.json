@@ -159,6 +159,11 @@
             "date": 1692983011499,
             "name": "H:\\next-level\\university-management-auth-service\\logs\\winston\\successes\\UNM-2023-08-25-23-success.log",
             "hash": "c8486041d1ca5c805065f198020b1185d49c39b0cb70b3e8a7f623ee5f92b8b5"
+        },
+        {
+            "date": 1692990025360,
+            "name": "H:\\next-level\\university-management-auth-service\\logs\\winston\\successes\\UNM-2023-08-26-01-success.log",
+            "hash": "c4352dc4d69c8d742ab8d3b3603f9c7d8cdc0ce3620c535c56e6f9bc40634c83"
         }
     ],
     "hashType": "sha256"
