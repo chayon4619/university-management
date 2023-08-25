@@ -45,7 +45,7 @@ const getAllStudent = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-// // delete student
+// delete student
 const deleteStudent = catchAsync(async (req: Request, res: Response) => {
   // get the id
   const id = req.params.id;
@@ -62,7 +62,7 @@ const deleteStudent = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-// // update student
+// update student
 const updateStudent = catchAsync(async (req: Request, res: Response) => {
   // get the id
   const id = req.params.id;
