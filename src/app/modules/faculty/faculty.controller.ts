@@ -25,7 +25,7 @@ const getSingleFaculty = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-// // delete faculty
+// delete faculty
 const deleteFaculty = catchAsync(async (req: Request, res: Response) => {
   // get the id
   const id = req.params.id;

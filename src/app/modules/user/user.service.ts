@@ -5,11 +5,17 @@ import { AcademicSemester } from '../academicSemester/academicSemester.model';
 import { IStudent } from '../student/student.interface';
 import { IUser } from './user.interface';
 import { User } from './user.model';
-import { generateFacultyId, generateStudentId } from './user.utils';
+import {
+  generateAdminId,
+  generateFacultyId,
+  generateStudentId,
+} from './user.utils';
 import { Student } from '../student/student.model';
 import httpStatus from 'http-status';
 import { IFaculty } from '../faculty/faculty.interface';
 import { Faculty } from '../faculty/faculty.model';
+import { IAdmin } from '../admin/admin.interface';
+import { Admin } from '../admin/admin.model';
 
 // here should be only logic
 const createStudent = async (
@@ -178,7 +184,84 @@ const createFaculty = async (
   return newUserAllData;
 };
 
+// here should be only logic
+const createAdmin = async (
+  admin: IAdmin,
+  user: IUser
+): Promise<IUser | null> => {
+  // we need default faculty password
+  if (!user.password) {
+    user.password = config.default_admin_pass as string;
+  }
+
+  // set up role
+  user.role = 'admin';
+
+  // get new data
+  let newUserAllData = null;
+
+  // transaction and rollback
+  const session = await mongoose.startSession();
+
+  try {
+    // start transaction
+    session.startTransaction();
+
+    // generate id
+    const id = await generateAdminId();
+
+    // set id
+    user.id = id;
+    admin.id = id;
+
+    // create admin
+    const newAdmin = await Admin.create([admin], { session });
+
+    if (!newAdmin.length) {
+      throw new ApiError(httpStatus.BAD_REQUEST, 'Failed to create Admin');
+    }
+
+    // get admin _id to set user.admin
+    user.admin = newAdmin[0]._id;
+
+    // create user
+    const newUser = await User.create([user], { session });
+
+    if (!newUser.length) {
+      throw new ApiError(httpStatus.BAD_REQUEST, 'Failed to create User');
+    }
+
+    // access new user
+    newUserAllData = newUser[0];
+
+    // commit transaction
+    await session.commitTransaction();
+
+    // end session
+    await session.endSession();
+  } catch (error) {
+    await session.abortTransaction();
+    await session.endSession();
+    throw error;
+  }
+
+  // send newAllData by populating
+  if (newUserAllData) {
+    newUserAllData = await User.findOne({ id: newUserAllData.id }).populate({
+      path: 'admin',
+      populate: [
+        {
+          path: 'managementDepartment',
+        },
+      ],
+    });
+  }
+
+  return newUserAllData;
+};
+
 export const UserService = {
   createStudent,
   createFaculty,
+  createAdmin,
 };
